@@ -297,10 +297,7 @@ footer {
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start; /* বাম সাইডে আনতে */
-    padding: 10px 0;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    align-items: flex-start; /* মাঝখানে আনার জন্য */
   }
 
   .nav-container {
@@ -326,6 +323,5 @@ footer {
     background-color: #e0e0e0;
   }
 }
-
 
 
