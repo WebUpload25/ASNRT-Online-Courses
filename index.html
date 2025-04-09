@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASRN Online Courses</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🎓ASNRT Online Courses</div>
+    <nav class="nav-container">
+      <a href="#" onclick="showTab('home')" class="nav-item">Home</a>
+      <a href="#" onclick="showTab('courses')" class="nav-item">Our Courses</a>
+      <a href="#" onclick="showTab('register')" class="nav-item">Register</a>
+      <a href="#" onclick="showTab('login')" class="nav-item">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="tab active home-section">
+      <!-- 🎯 Hero Section -->
+      <div class="hero bg-gradient-to-r from-indigo-500 to-blue-600 text-white p-10 rounded-lg shadow-lg text-center">
+        <h1 class="text-4xl font-bold mb-4">🎉 অনলাইন কোর্সে আপনাকে স্বাগতম</h1>
+        <p class="text-lg mb-6">আপনার ক্যারিয়ার গঠনে সহায়ক প্রফেশনাল কোর্স শিখুন ঘরে বসেই!</p>
+        <button onclick="showTab('courses')" class="bg-white text-blue-700 px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-100 transition">
+          👉 এখনই কোর্স দেখুন
+        </button>
+      </div>
+    
+      <!-- 🚀 আমাদের বিশেষ বৈশিষ্ট্য -->
+      <div class="features mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="bg-white p-6 rounded shadow">
+          <h2 class="text-xl font-semibold mb-2">📹 লাইভ ও রেকর্ডেড ক্লাস</h2>
+          <p>ক্লাস মিস হলেও রেকর্ডেড ভিডিও দিয়ে আপনি এগিয়ে যেতে পারবেন।</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h2 class="text-xl font-semibold mb-2">🎓 সার্টিফিকেট প্রদান</h2>
+          <p>প্রতিটি কোর্স শেষে পাবেন ই-সার্টিফিকেট যা ক্যারিয়ারে কাজে দেবে।</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h2 class="text-xl font-semibold mb-2">👨‍🏫 অভিজ্ঞ প্রশিক্ষক</h2>
+          <p>আমাদের ইন্সট্রাক্টররা ইন্ডাস্ট্রির রিয়েল প্রোজেক্ট এক্সপার্ট।</p>
+        </div>
+      </div>
+    
+      <!-- 🎯 CTA সেকশন -->
+      <div class="cta bg-indigo-600 text-white text-center p-8 rounded-lg mt-12">
+        <h2 class="text-3xl font-bold mb-4">💡 আজই শেখা শুরু করুন!</h2>
+        <p class="mb-6">এই কোর্সগুলো আপনাকে নতুন ক্যারিয়ার গড়তে বা উন্নত করতে সাহায্য করবে।</p>
+        <button onclick="showTab('register')" class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-indigo-100 transition">
+          📝 এখনই নিবন্ধন করুন
+        </button>
+      </div>
+    </section>
+    
+    <section id="courses" class="tab">
+      <h2>📚 আমাদের কোর্সসমূহ</h2>
+      <div class="courses-container">
+        <button class="course-btn" data-course="ওয়েব ডেভেলপমেন্ট">
+          <img src="images/webdesigner.jpg" alt="ওয়েব ডেভেলপমেন্ট">
+          <h3>🌐ওয়েব ডেভেলপমেন্ট</h3>
+          <p>ওয়েবসাইট তৈরি শিখুন</p>
+        </button>
+        <button class="course-btn" data-course="গ্রাফিক ডিজাইন">
+          <img src="images/Graphic.jpg" alt="গ্রাফিক ডিজাইন">
+          <h3>🎨গ্রাফিক ডিজাইন</h3>
+          <p>ডিজাইনের জগতে প্রবেশ করুন</p>
+        </button>
+        <button class="course-btn" data-course="ডিজিটাল মার্কেটিং">
+          <img src="images/WhatsApp Image 2023-10-04 at 11.25.21_c6f72ba4.jpg" alt="ডিজিটাল মার্কেটিং">
+          <h3>📢ডিজিটাল মার্কেটিং</h3>
+          <p>অনলাইন মার্কেটিং শিখুন</p>
+        </button>
+        <button class="course-btn" data-course="অফিস অ্যাপলিকেশন">
+          <img src="images/Office.jpg" alt="অফিস অ্যাপলিকেশন">
+          <h3>💻অফিস অ্যাপলিকেশন</h3>
+          <p>অফিস সফটওয়্যার মাস্টারি</p>
+        </button>
+        <button class="course-btn" data-course="ডাটাবেস ম্যানেজমেন্ট">
+          <img src="images/Database.jpg" alt="ডাটাবেস ম্যানেজমেন্ট">
+          <h3>🗄️ডাটাবেস ম্যানেজমেন্ট</h3>
+          <p>ডেটা হ্যান্ডলিং শিখুন</p>
+        </button>
+        <button class="course-btn" data-course="লার্নিং ইংলিশ">
+          <img src="images/learn-english-effectively.jpg" alt="লার্নিং ইংলিশ">
+          <h3>📝লার্নিং ইংলিশ</h3>
+          <p>ইংরেজি দক্ষতা বৃদ্ধি করুন</p>
+        </button>
+      </div>
+    
+    </section>
+    
+    <div id="course-details" class="tab">
+    <div class="course-card">
+      <h3 id="course-title">কোর্সের নাম</h3>
+      <p id="course-description">এখানে কোর্স সম্পর্কে বর্ণনা থাকবে।</p>
+      <ul id="course-topics"></ul>
+      <div id="course-video-container" class="video-wrapper" style="margin-top: 20px;"></div>
+    </div>
+    <button onclick="showTab('courses')">🔙 কোর্স তালিকায় ফিরে যান</button>
+  </div>
+    
+      
+    <section id="register" class="tab">
+      <h2>📝রেজিস্ট্রেশন ফরমটি পূরণ করুন</h2>
+      <form id="register-form" method="POST" action="register.php">
+        <label for="name">পূর্ণ নাম (ইংরেজি):</label>
+        <input type="text" id="name" name="name" required>
+    
+        <label for="email">ইমেইল:</label>
+        <input type="email" id="email" name="email" required>
+    
+        <label for="phone">ফোন নাম্বার:</label>
+        <input type="text" id="phone" name="phone" required>
+    
+        <label for="dob">জন্ম তারিখ:</label>
+        <input type="date" id="dob" name="dob" required>
+    
+        <label for="gender">জেন্ডার:</label>
+        <select id="gender" name="gender" required>
+            <option value="লিঙ্গ নির্বাচন করুন" disabled selected>লিঙ্গ নির্বাচন করুন</option>
+            <option value="male">পুরুষ</option>
+            <option value="female">মহিলা</option>
+            <option value="other">অন্যান্য</option>
+        </select>
+    
+        <label for="preferred-course">পছন্দের কোর্স:</label>
+        <select id="preferred-course" name="preferredCourse" required>
+            <option value="কোর্স নির্বাচন করুন" disabled selected>কোর্স নির্বাচন করুন</option>
+            <option value="ওয়েব ডেভেলপমেন্ট">ওয়েব ডেভেলপমেন্ট</option>
+            <option value="গ্রাফিক ডিজাইন">গ্রাফিক ডিজাইন</option>
+            <option value="ডিজিটাল মার্কেটিং">ডিজিটাল মার্কেটিং</option>
+            <option value="অফিস অ্যাপলিকেশন">অফিস অ্যাপলিকেশন</option>
+            <option value="ডাটাবেস ম্যানেজমেন্ট">ডাটাবেস ম্যানেজমেন্ট</option>
+            <option value="লার্নিং ইংলিশ">লার্নিং ইংলিশ</option>
+        </select>
+    
+        <label for="password">পাসওয়ার্ড:</label>
+        <input type="password" id="password" name="password" required>
+    
+        <label for="confirm-password">পাসওয়ার্ড নিশ্চিত করুন:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+    
+        <label for="terms">
+            <input type="checkbox" id="terms" name="terms" required /> আমি শর্তাবলী গ্রহণ করি
+        </label>
+    
+        <button type="submit">নিবন্ধন করুন</button>
+    </form>
+    
+
+    </section>
+    
+
+    <section id="login" class="tab" style="display: block;">
+      <h2>🔑 লগইন</h2>
+      <form id="login-form">
+          <input type="email" id="login-email" placeholder="ইমেইল" required />
+          <input type="password" id="login-password" placeholder="পাসওয়ার্ড" required />
+          <button type="submit">লগইন করুন</button>
+      </form>
+  </section>
+  
+  <section id="profile" class="tab" style="display: none;">
+      <h2>👤 প্রোফাইল</h2>
+      <p><strong>নাম:</strong> <span id="profile-name"></span></p>
+      <p><strong>ইমেইল:</strong> <span id="profile-email"></span></p>
+      <p><strong>কোর্স:</strong> <span id="profile-course"></span></p>
+      <button onclick="showTab('home')">🏠 হোমে ফিরে যান</button>
+  </section>
+  
+  <section id="home" class="tab">
+      <!-- Your Home Content Here -->
+  </section>
+  
+  </main>
+
+  <footer>
+    Copyright © 2025 LMS Platform | সমস্ত অধিকার সংরক্ষিত | Developer- Md. Alif Hossain |
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>

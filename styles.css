@@ -1,0 +1,318 @@
+/* 🔹 Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('images/Online-Courses.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #2c3e50;
+}
+
+
+/* 🔹 Navigation Bar */
+.navbar {
+  background-color: #148c2c;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-container {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  background-color: #cd10d0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 70px; /* যেন কনটেন্ট ফুটারের নিচে না ঢুকে যায় */
+}
+
+
+.nav-item:hover {
+  background-color: #cb94ed;
+  transform: translateY(-6px);
+}
+
+/* 🔹 Tabs */
+.tab {
+  display: none;
+  background-color: #ffffffd2;
+  padding: 30px 20px;
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 850px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tab.active {
+  display: block;
+}
+
+/* 🔹 Home Section */
+.home-section {
+  background-image: url('https://source.unsplash.com/1600x900/?education,learning');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 100px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  position: relative;
+  color: #0c0c0c;
+}
+
+.home-section::before {
+  content: "";
+  background-color: rgba(137, 228, 234, 0.174);
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+
+.home-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.home-heading {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.home-section button {
+  margin-top: 20px;
+  background-color: #3ab01d;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.home-section button:hover {
+  background-color: #85e65c;
+  transform: scale(1.05);
+}
+
+/* 🔹 Course Grid */
+.courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  padding: 20px;
+}
+
+.course-btn {
+  border-radius: 16px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.course-btn img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.course-btn h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.course-btn p {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* 🎨 Course Colors */
+.course-btn[data-course="ওয়েব ডেভেলপমেন্ট"] {
+  background-color: #2980b9;
+  color: white;
+}
+
+.course-btn[data-course="গ্রাফিক ডিজাইন"] {
+  background-color: #e67e22;
+  color: white;
+}
+
+.course-btn[data-course="ডিজিটাল মার্কেটিং"] {
+  background-color: #16a085;
+  color: white;
+}
+
+.course-btn[data-course="অফিস অ্যাপলিকেশন"] {
+  background-color: #8e44ad;
+  color: white;
+}
+
+.course-btn[data-course="ডাটাবেস ম্যানেজমেন্ট"] {
+  background-color: #c0392b;
+  color: white;
+}
+
+.course-btn[data-course="লার্নিং ইংলিশ"] {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.course-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* 🔹 Course Details Card */
+.course-card {
+  background: #f4f6f8;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.course-card h3 {
+  font-size: 24px;
+  color: #1d4ed8;
+  margin-bottom: 10px;
+}
+
+.course-card ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.course-card ul li {
+  margin-bottom: 6px;
+  list-style: "⭐ ";
+}
+
+.course-card p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+
+.video-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+/* 🔹 Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, select, button {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #888;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  border-color: #1abc9c;
+  box-shadow: 0px 0px 8px rgba(26, 188, 156, 0.5);
+}
+
+button {
+  background-color: #148c2c;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0f7a26;
+  transform: translateY(-3px);
+}
+
+/* 🔹 Footer */
+footer {
+  text-align: center;
+  padding: 14px;
+  background-color: #7e6ef4;
+  color: #fff;
+  width: 100%;
+  position: fixed;  /* স্ক্রিনের নিচে ফিক্সড থাকবে */
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+
+
+/* 🔹 Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .home-heading {
+    font-size: 1.6rem;
+  }
+
+  .home-section {
+    padding: 60px 20px;
+  }
+
+  .course-btn img {
+    width: 60px;
+    height: 60px;
+  }
+}
