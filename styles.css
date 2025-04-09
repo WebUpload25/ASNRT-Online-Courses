@@ -288,31 +288,27 @@ footer {
 }
 
 
-
 /* 🔹 Animations */
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(10px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* 🔹 Responsive Design */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    width: 100%;
     gap: 10px;
   }
 
-  .home-heading {
-    font-size: 1.6rem;
-  }
-
-  .home-section {
-    padding: 60px 20px;
-  }
-
-  .course-btn img {
-    width: 60px;
-    height: 60px;
+  .nav-item {
+    width: 100%;
+    text-align: left;
   }
 }
+
