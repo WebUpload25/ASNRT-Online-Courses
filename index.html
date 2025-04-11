@@ -102,21 +102,21 @@
   </div>
     
       
-    <section id="register" class="tab">
-      <h2>📝রেজিস্ট্রেশন ফরমটি পূরণ করুন</h2>
-      <form id="register-form" method="POST" action="register.php">
+  <section id="register" class="tab">
+    <h2>📝রেজিস্ট্রেশন ফরমটি পূরণ করুন</h2>
+    <form id="register-form" method="POST" action="register.php">
         <label for="name">পূর্ণ নাম (ইংরেজি):</label>
         <input type="text" id="name" name="name" required>
-    
+
         <label for="email">ইমেইল:</label>
         <input type="email" id="email" name="email" required>
-    
+
         <label for="phone">ফোন নাম্বার:</label>
         <input type="text" id="phone" name="phone" required>
-    
+
         <label for="dob">জন্ম তারিখ:</label>
         <input type="date" id="dob" name="dob" required>
-    
+
         <label for="gender">জেন্ডার:</label>
         <select id="gender" name="gender" required>
             <option value="লিঙ্গ নির্বাচন করুন" disabled selected>লিঙ্গ নির্বাচন করুন</option>
@@ -124,7 +124,7 @@
             <option value="female">মহিলা</option>
             <option value="other">অন্যান্য</option>
         </select>
-    
+
         <label for="preferred-course">পছন্দের কোর্স:</label>
         <select id="preferred-course" name="preferredCourse" required>
             <option value="কোর্স নির্বাচন করুন" disabled selected>কোর্স নির্বাচন করুন</option>
@@ -135,40 +135,78 @@
             <option value="ডাটাবেস ম্যানেজমেন্ট">ডাটাবেস ম্যানেজমেন্ট</option>
             <option value="লার্নিং ইংলিশ">লার্নিং ইংলিশ</option>
         </select>
-    
+
         <label for="password">পাসওয়ার্ড:</label>
-        <input type="password" id="password" name="password" required>
-    
+        <div class="password-container">
+            <input type="password" id="password" name="password" required>
+            <i class="toggle-password" id="register-toggle-password">👁️</i>
+        </div>
+
         <label for="confirm-password">পাসওয়ার্ড নিশ্চিত করুন:</label>
-        <input type="password" id="confirm-password" name="confirm-password" required>
-    
+        <div class="password-container">
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <i class="toggle-password" id="register-toggle-confirm-password">👁️</i>
+        </div>
+
         <label for="terms">
             <input type="checkbox" id="terms" name="terms" required /> আমি শর্তাবলী গ্রহণ করি
         </label>
-    
+
         <button type="submit">নিবন্ধন করুন</button>
     </form>
-    
+</section>
 
-    </section>
-    
+<section id="login" class="tab" style="display: block;">
+    <h2>🔑 লগইন</h2>
+    <form id="login-form">
+        <input type="email" id="login-email" placeholder="ইমেইল" required />
+        <div class="password-container">
+            <input type="password" id="login-password" placeholder="পাসওয়ার্ড" required />
+            <i class="toggle-password" id="login-toggle-password">👁️</i>
+        </div>
+        <button type="submit">লগইন করুন</button>
+    </form>
+</section>
 
-    <section id="login" class="tab" style="display: block;">
-      <h2>🔑 লগইন</h2>
-      <form id="login-form">
-          <input type="email" id="login-email" placeholder="ইমেইল" required />
-          <input type="password" id="login-password" placeholder="পাসওয়ার্ড" required />
-          <button type="submit">লগইন করুন</button>
-      </form>
+  
+  <section id="profile" class="tab">
+    <div class="profile-card">
+      <div class="profile-header">
+        <img id="profile-picture" src="images/default.png" alt="Profile" width="100">
+        <input type="file" id="upload-photo" accept="image/*" />
+      </div>
+      <div class="profile-info">
+        <h3 id="profile-name">ইউজারের নাম</h3>
+        <p><b>📧 ইমেইল:</b> <span id="profile-email">ইমেইল ঠিকানা</span></p>
+        <p><b>🎯 পছন্দের কোর্স:</b> <span id="profile-course">কোর্সের নাম</span></p>
+        <p><b>📞 ফোন নাম্বার:</b> <span id="profile-phone">ফোন নাম্বার</span></p>
+        <p><b>💬 লিঙ্গ:</b> <span id="profile-gender">লিঙ্গ</span></p>
+
+      </div>
+
+      <div class="profile-progress">
+        <p>📈 কোর্স প্রগ্রেস</p>
+        <progress id="course-progress" value="40" max="100"></progress>
+      </div>
+  
+      <div class="profile-courses">
+        <h4>📚 আমার কোর্সগুলো:</h4>
+        <ul id="my-courses-list">
+          <li>✅ ওয়েব ডেভেলপমেন্ট</li>
+          <li>✅ গ্র্রাফিক্স ডিজাইন</li>
+          <li>✅ ডিজিটাল মার্কেটিং</li>
+          <li>✅ অফিস অ্যাপলিকেশন</li>
+          <li>✅ ডাটাবেস ম্যানেজমেন্ট</li>
+          <li>✅ লার্নিং ইংলিশ</li>
+
+        </ul>
+      </div>
+  
+      <button id="logout-btn">🚪 লগআউট</button>
+    </div>
   </section>
   
-  <section id="profile" class="tab" style="display: none;">
-      <h2>👤 প্রোফাইল</h2>
-      <p><strong>নাম:</strong> <span id="profile-name"></span></p>
-      <p><strong>ইমেইল:</strong> <span id="profile-email"></span></p>
-      <p><strong>কোর্স:</strong> <span id="profile-course"></span></p>
-      <button onclick="showTab('home')">🏠 হোমে ফিরে যান</button>
-  </section>
+  
   
   <section id="home" class="tab">
       <!-- Your Home Content Here -->

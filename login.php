@@ -29,8 +29,8 @@ if (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $email)) {
 }
 
 try {
-    // ✅ ইমেইল অনুযায়ী ইউজার খোঁজা
-    $query = "SELECT id, name, email, preferred_course, password FROM users WHERE email = :email";
+    // ✅ ইমেইল অনুযায়ী ইউজার
+    $query = "SELECT id, name, email, preferred_course, phone, gender, password FROM users WHERE email = :email";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
@@ -46,6 +46,8 @@ try {
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['user_email'] = $user['email'];
             $_SESSION['user_preferredCourse'] = $user['preferred_course'];
+            $_SESSION['user_phone'] = $user['phone'];  // ফোন নাম্বার সেশন
+            $_SESSION['user_gender'] = $user['gender'];  // লিঙ্গ সেশন
 
             echo json_encode([
                 "success" => true,
@@ -53,7 +55,9 @@ try {
                 "user" => [
                     "name" => $user['name'],
                     "email" => $user['email'],
-                    "preferredCourse" => $user['preferred_course']
+                    "preferredCourse" => $user['preferred_course'],
+                    "phone" => $user['phone'],  // ফোন নাম্বার
+                    "gender" => $user['gender'] // লিঙ্গ
                 ]
             ]);
         } else {

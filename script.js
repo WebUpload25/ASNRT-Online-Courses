@@ -214,6 +214,16 @@ registerForm?.addEventListener('submit', async (e) => {
   }
 });
 
+// একাধিক পাসওয়ার্ড ইনপুটের জন্য একই ফাংশন
+document.querySelectorAll('.toggle-password').forEach(icon => {
+  icon.addEventListener('click', () => {
+    const input = icon.previousElementSibling;
+    const isPassword = input.type === 'password';
+    input.type = isPassword ? 'text' : 'password';
+    icon.textContent = isPassword ? '🙈' : '👁️';
+  });
+});
+
 
 // 🔑 লগইন প্রক্রিয়া
 const loginForm = document.getElementById('login-form');
@@ -237,28 +247,128 @@ loginForm?.addEventListener('submit', async (e) => {
     const result = await response.json();
 
     if (result.success) {
-      alert(`🎉 স্বাগতম, ${result.name}!`);
+      console.log(result.user);  // লগইন হওয়া ইউজারের ডাটা চেক করুন
+    
+      alert(`🎉 স্বাগতম, ${result.user.name}!`);
       localStorage.setItem("loggedInUser", JSON.stringify(result.user));
-
+    
       // প্রোফাইল তথ্য আপডেট
       document.getElementById('profile-name').textContent = result.user.name;
       document.getElementById('profile-email').textContent = result.user.email;
       document.getElementById('profile-course').textContent = result.user.preferredCourse;
-
-      showTab('profile'); // প্রোফাইল পেজে নিয়ে যাবে
+      document.getElementById('profile-phone').textContent = result.user.phone;  // ফোন নাম্বার
+      document.getElementById('profile-gender').textContent = result.user.gender;  // লিঙ্গ
+    
+      // প্রোফাইল পেজে নিয়ে যাবে
+      showTab('profile');
+    
+      // প্রোফাইল ছবি আপলোড ফাংশন
+      initializeProfilePicture(result.user.email); // ইউজারের ইমেইল পাস করা হলো
     } else {
       alert(`❌ ${result.message}`);
     }
+    
   } catch (error) {
     console.error("❌ লগইন ত্রুটি:", error);
     alert("⚠️ সার্ভার সংযোগ সমস্যা! পরে আবার চেষ্টা করুন।");
   }
 });
 
+// লগইন পাসওয়ার্ড হাইড/শো ফিচার
+const loginTogglePassword = document.getElementById('login-toggle-password');
+const loginPasswordInput = document.getElementById('login-password');
 
-// 🚪 লগআউট ফাংশন
+loginTogglePassword?.addEventListener('click', () => {
+  if (loginPasswordInput.type === "password") {
+    loginPasswordInput.type = "text"; // পাসওয়ার্ড দেখাবে
+    loginTogglePassword.textContent = "🙈"; // আইকন বদলাবে
+  } else {
+    loginPasswordInput.type = "password"; // পাসওয়ার্ড হাইড করবে
+    loginTogglePassword.textContent = "👁️"; // আইকন আবার আগের মতো হবে
+  }
+});
+
+// প্রোফাইল ছবি আপলোড ফাংশন
+function initializeProfilePicture(userEmail) {
+  const profilePicture = document.getElementById('profile-picture');
+  const uploadPhoto = document.getElementById('upload-photo');
+
+  // ইউজারের ইমেইল ব্যবহার করে প্রোফাইল ছবি লোড করো (যদি আগে সেভ করা থাকে)
+  const savedImage = localStorage.getItem(`profilePicture_${userEmail}`);
+  if (savedImage) {
+    profilePicture.src = savedImage;
+  }
+
+  // নতুন ছবি সিলেক্ট করলে প্রিভিউ দেখাও এবং লোকালস্টোরেজে সেভ করো
+  uploadPhoto.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        profilePicture.src = e.target.result;
+        
+        // ইউজারের ইমেইল ব্যবহার করে আলাদা ছবি সেভ করো
+        localStorage.setItem(`profilePicture_${userEmail}`, e.target.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      alert("⚠️ অনুগ্রহ করে একটি বৈধ ছবি নির্বাচন করুন!");
+    }
+  });
+}
+
+// প্রোফাইল ইনফো আপডেট ফাংশন
+function updateProfileInfo(user) {
+  document.getElementById('profile-name').textContent = user.name;
+  document.getElementById('profile-email').textContent = user.email;
+  document.getElementById('profile-course').textContent = user.preferredCourse;
+  document.getElementById('profile-phone').textContent = user.phone;
+  document.getElementById('profile-gender').textContent = user.gender;
+}
+
+// ট্যাব দেখানোর ফাংশন
+function showTab(tab) {
+  const homeTab = document.getElementById('home-tab');
+  const loginTab = document.getElementById('login-tab');
+  const profileTab = document.getElementById('profile-tab');
+
+  homeTab.style.display = (tab === 'home') ? 'block' : 'none';
+  loginTab.style.display = (tab === 'login') ? 'block' : 'none';
+  profileTab.style.display = (tab === 'profile') ? 'block' : 'none';
+}
+
+// লগআউট ফাংশন
 document.getElementById('logout-btn')?.addEventListener('click', () => {
   localStorage.removeItem("loggedInUser");
   alert("🚪 আপনি লগআউট করেছেন!");
   showTab('login');
 });
+
+// ✅ একমাত্র DOMContentLoaded হ্যান্ডলার
+window.addEventListener('DOMContentLoaded', () => {
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (user) {
+    updateProfileInfo(user);
+    initializeProfilePicture(user.email);  // এখানে সঠিকভাবে প্রোফাইল ছবি লোড করানো হচ্ছে
+    showTab('profile'); // ইউজার থাকলে প্রোফাইল দেখাও
+  } else {
+    showTab('home'); // না থাকলে হোম দেখাও
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
