@@ -17,8 +17,7 @@ body {
   color: #2c3e50;
 }
 
-
-/* 🧭 Navbar styles */
+/* Navbar Style */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -33,8 +32,11 @@ body {
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-container {
@@ -52,38 +54,51 @@ body {
   transition: all 0.3s ease;
 }
 
-.nav-item:hover,
-.nav-item.active {
-  background-color: #34495e;
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
+.nav-item.active {
+  background-color: white;
+  color: #00b894;
+}
+
+/* 📱 Responsive Navbar */
 .hamburger {
   display: none;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
+  color: white;
 }
 
-/* 📱 Mobile responsive */
+/* মোবাইলে nav hide থাকবে */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
   .nav-container {
+    display: none;
     flex-direction: column;
     width: 100%;
-    display: none;
+    background-color: #00b894;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
   }
 
   .nav-container.show {
     display: flex;
   }
 
+  .hamburger {
+    display: block;
+  }
+
   .nav-item {
-    padding: 10px 15px;
-    border-bottom: 1px solid #3d566e;
+    padding: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
+
 
 
 /* 🔹 Tabs */
@@ -572,7 +587,7 @@ button:hover {
 
 
 .footer {
-  background: #04856d;
+  background: #036581;
   color: #fff;
   padding: 50px 20px 20px;
   position: relative;
