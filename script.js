@@ -3,26 +3,18 @@ const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [
 document.addEventListener("DOMContentLoaded", function () {
   console.log("✅ Script Loaded Successfully!");
 
-  // মোবাইল মেনু টগল করার ফাংশন
-function toggleMenu() {
-  const menu = document.getElementById('navMenu');
-  menu.classList.toggle('show');
-}
+  function toggleMobileMenu() {
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('show');
+  }
+  
+  // Optional: future tab support
+  function showTab(tab) {
+    console.log("Tab selected:", tab);
+    // এখানে ট্যাব ম্যানেজ করার কোড লিখতে পারো
+  }
+  
 
-// Navbar এ active ক্লাস এবং মোবাইল মেনু বন্ধ
-document.querySelectorAll('.nav-item').forEach(item => {
-  item.addEventListener('click', function () {
-    // Active ক্লাস আপডেট করা
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-    this.classList.add('active');
-
-    // মোবাইলে ক্লিক করার পর মেনু বন্ধ করে দাও
-    const menu = document.getElementById('navMenu');
-    if (menu.classList.contains('show')) {
-      menu.classList.remove('show');
-    }
-  });
-});
 
   // 🏷️ ট্যাব পরিবর্তনের ফাংশন
   window.showTab = function (tabId) {
@@ -383,23 +375,16 @@ document.getElementById('closeModal').addEventListener('click', () => {
 });
 
 
-// ✅ ট্যাব দেখানোর ফাংশন
-function showTab(tab) {
-  const homeTab = document.getElementById('home-tab');
-  const loginTab = document.getElementById('login-tab');
-  const profileTab = document.getElementById('profile-tab');
-
-  homeTab.style.display = (tab === 'home') ? 'block' : 'none';
-  loginTab.style.display = (tab === 'login') ? 'block' : 'none';
-  profileTab.style.display = (tab === 'profile') ? 'block' : 'none';
-}
-
 // ✅ লগআউট ফাংশন
 document.getElementById('logout-btn')?.addEventListener('click', () => {
+  // লোকালস্টোরেজ থেকে ইউজার রিমুভ
   localStorage.removeItem("loggedInUser");
-  alert("🚪 আপনি লগআউট করেছেন!");
+
+  // লগআউট পর UI আপডেট (প্রোফাইল বা সিকিউর অংশ লুকানো যেতে পারে, এখানে শুধু ট্যাব সুইচ করছি)
+  alert("👋 আপনি সফলভাবে লগআউট করেছেন।");
   showTab('login');
 });
+
 
 // ✅ পেজ রিলোডেও প্রোফাইল ধরে রাখা
 window.addEventListener('DOMContentLoaded', () => {
@@ -414,21 +399,3 @@ window.addEventListener('DOMContentLoaded', () => {
     showTab('home');
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
