@@ -1,0 +1,704 @@
+/* 🔹 Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('images/Online-Courses.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #2c3e50;
+}
+
+
+/* 🧭 Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #00b894, #0984e3);
+  padding: 12px 24px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-container {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  background-color: #00b894;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: #34495e;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+
+  .nav-container.show {
+    display: flex;
+  }
+
+  .nav-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #3d566e;
+  }
+}
+
+
+/* 🔹 Tabs */
+.tab {
+  display: none;
+  background-color: #ffffffd2;
+  padding: 30px 20px;
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 850px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tab.active {
+  display: block;
+}
+
+/* 🔹 Home Section */
+.home-section {
+  background-image: url('https://source.unsplash.com/1600x900/?education,learning');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  position: relative;
+  color: #0c0c0c;
+}
+
+.home-section::before {
+  content: "";
+  background-color: rgba(137, 228, 234, 0.174);
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+
+.home-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.home-heading {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.home-section button {
+  margin-top: 20px;
+  background-color: #3ab01d;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.home-section button:hover {
+  background-color: #85e65c;
+  transform: scale(1.05);
+}
+
+/* 🔹 Course Grid */
+.courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  padding: 2px;
+}
+
+.course-btn {
+  border-radius: 16px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.course-btn img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.course-btn h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.course-btn p {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* 🎨 Course Colors */
+.course-btn[data-course="ওয়েব ডেভেলপমেন্ট"] {
+  background-color: #47f5a4;
+  color: white;
+}
+
+.course-btn[data-course="গ্রাফিক ডিজাইন"] {
+  background-color: #f5db5a;
+  color: white;
+}
+
+.course-btn[data-course="ডিজিটাল মার্কেটিং"] {
+  background-color: #56f453;
+  color: white;
+}
+
+.course-btn[data-course="অফিস অ্যাপলিকেশন"] {
+  background-color: #62b7fc;
+  color: white;
+}
+
+.course-btn[data-course="ডাটাবেস ম্যানেজমেন্ট"] {
+  background-color: #e259f7;
+  color: white;
+}
+
+.course-btn[data-course="লার্নিং ইংলিশ"] {
+  background-color: #fd4f6c;
+  color: white;
+}
+
+.course-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* 🔹 Course Details Card */
+.course-card {
+  background: #f4f6f8;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.course-card h3 {
+  font-size: 24px;
+  color: #1d4ed8;
+  margin-bottom: 10px;
+}
+
+.course-card ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.course-card ul li {
+  margin-bottom: 6px;
+  list-style: "⭐ ";
+}
+
+.course-card p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+
+.video-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container iframe {
+  width: 100%;
+  max-width: 720px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+/* 🔹 Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, select, button {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #888;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  border-color: #1abc9c;
+  box-shadow: 0px 0px 8px rgba(26, 188, 156, 0.5);
+}
+
+
+  form {
+    max-width: 500px;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .password-container {
+    position: relative;
+  }
+
+  .password-container input {
+    padding-right: 40px;
+  }
+
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+  }
+
+  button[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #32b222;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #90ef76;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+
+
+
+button {
+  background-color: #148c2c;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0f7a26;
+  transform: translateY(-3px);
+}
+
+#profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  min-height: 100vh;
+  background-color: #f5f5f557;
+}
+
+.profile-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #dcfff1;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+#profile-picture:hover {
+  transform: scale(1.05);
+}
+
+
+.profile-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-info {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.profile-progress {
+  margin: 20px 0;
+}
+
+#course-progress {
+  width: 100%;
+  height: 18px;
+  border-radius: 10px;
+}
+
+/* কোর্স ভিডিও ডিজাইন */
+#course-videos {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#course-videos h3 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 22px;
+  border-bottom: 2px solid #00b894;
+  padding-bottom: 5px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* প্রতিটি সারিতে ৩টি ভিডিও */
+  gap: 20px;
+  padding: 10px;
+}
+
+.video-item {
+  background-color: #c9fbe0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.video-item:hover {
+  transform: translateY(-5px);
+}
+
+.video-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  border-radius: 10px 10px 0 0;
+}
+
+.video-info {
+  padding: 10px;
+}
+
+.video-info h4 {
+  font-size: 14px;
+  margin: 0;
+  color: #2d3436;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 600px; /* আগে ছিল 800px */
+  width: 90%;
+}
+
+
+.modal-content video {
+  width: 100%;
+  height: 340px; /* বা 360px */
+  border-radius: 10px;
+}
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 90%;
+  }
+
+  .modal-content video {
+    height: auto;
+  }
+}
+
+
+#logout-btn {
+  background-color: #e34623; /* লাল */
+  color: white; /* টেক্সট সাদা */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#logout-btn:hover {
+  background-color: #e26e6e; /* হোভার করলে গা dark লাল */
+}
+
+
+
+@media (max-width: 500px) {
+  .profile-card {
+    padding: 20px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+.footer {
+  background: #04856d;
+  color: #fff;
+  padding: 50px 20px 20px;
+  position: relative;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h2, .footer h3 {
+  color: #00cec9;
+}
+
+.footer p, .footer a {
+  font-size: 14px;
+  color: #dfe6e9;
+  line-height: 1.6;
+}
+
+.footer a:hover {
+  color: #81ecec;
+  text-decoration: underline;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer-newsletter input {
+  padding: 8px;
+  width: 70%;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.footer-newsletter button {
+  padding: 8px 12px;
+  background: #00cec9;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer-newsletter button:hover {
+  background: #00b894;
+}
+
+.social-icons a {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #636e72;
+  margin-top: 30px;
+  padding-top: 10px;
+  font-size: 13px;
+  color: #b2bec3;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00cec9;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 14px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+/* 🔹 Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start; /* বাম সাইডে আনতে */
+    padding: 10px 0;
+    background-color: #26a207;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start; /* বাম দিকে সমন্বিত */
+    width: 100%;
+    gap: 10px;
+    padding-left: 20px; /* বামদিকে একটু স্পেস */
+  }
+
+  .nav-item {
+    width: auto;
+    padding: 10px 20px;
+    text-align: left; /* বামদিকে টেক্সট এলাইন */
+    border-radius: 6px;
+    background-color: #be49d8;
+    color: #fcfbfb;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+
+  .nav-item:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+
+
