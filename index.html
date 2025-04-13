@@ -13,15 +13,19 @@
 <header class="navbar">
   <div class="logo">🎓 ASNRT Online Courses</div>
 
-  <!-- Hamburger Button -->
-  <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+  <!-- মোবাইলে ডান পাশে hamburger এবং nav-container wrap করা -->
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <!-- ☰ হ্যামবার্গার আইকন -->
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
 
-  <nav class="nav-container" id="navMenu">
-    <a href="#" onclick="showTab('home')" class="nav-item">Home</a>
-    <a href="#" onclick="showTab('courses')" class="nav-item">Our Courses</a>
-    <a href="#" onclick="showTab('register')" class="nav-item">Register</a>
-    <a href="#" onclick="showTab('login')" class="nav-item">Login</a>
-  </nav>
+    <!-- মেনু আইটেমসমূহ -->
+    <nav class="nav-container" id="navMenu">
+      <a href="#" onclick="showTab('home')" class="nav-item">Home</a>
+      <a href="#" onclick="showTab('courses')" class="nav-item">Our Courses</a>
+      <a href="#" onclick="showTab('register')" class="nav-item">Register</a>
+      <a href="#" onclick="showTab('login')" class="nav-item">Login</a>
+    </nav>
+  </div>
 </header>
 
   <main>
