@@ -3,17 +3,26 @@ const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [
 document.addEventListener("DOMContentLoaded", function () {
   console.log("✅ Script Loaded Successfully!");
 
-  function toggleMobileMenu() {
-    const navMenu = document.getElementById('navMenu');
-    navMenu.classList.toggle('show');
-  }
-  
-  // Optional: future tab support
-  function showTab(tab) {
-    console.log("Tab selected:", tab);
-    // এখানে ট্যাব ম্যানেজ করার কোড লিখতে পারো
-  }
-  
+  // মোবাইল মেনু টগল ফাংশন
+document.querySelector('.hamburger')?.addEventListener('click', () => {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('show');
+});
+
+// প্রতিটি মেনু আইটেমে ক্লিক ইভেন্ট
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', function () {
+    // Active ক্লাস হ্যান্ডেল
+    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+
+    // মোবাইলে ক্লিকের পর মেনু বন্ধ
+    if (window.innerWidth <= 768) {
+      document.getElementById('navMenu').classList.remove('show');
+    }
+  });
+});
+
 
 
   // 🏷️ ট্যাব পরিবর্তনের ফাংশন
